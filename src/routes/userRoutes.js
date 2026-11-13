@@ -2,10 +2,8 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 const { requireAuth } = require('../middleware/authMiddleware');
-const path = require('path');
 const { createMultipartParser } = require('../utils/multipart');
-const photoDir = path.join(__dirname, '..', '..', 'private_uploads', 'profiles');
-const parsePhoto = createMultipartParser({ uploadDir: photoDir, maxFileSize: 3 * 1024 * 1024, allowedExtensions: ['.jpg','.jpeg','.png','.webp'] });
+const parsePhoto = createMultipartParser({ maxFileSize: 3 * 1024 * 1024, allowedExtensions: ['.jpg','.jpeg','.png','.webp'] });
 
 router.get('/me', requireAuth, userController.getProfile);
 router.patch('/me', requireAuth, userController.updateProfile);

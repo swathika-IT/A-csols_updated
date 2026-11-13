@@ -6,11 +6,11 @@ const { parseXlsx, parseXlsxWithImages } = require('../utils/xlsxLite');
 const { buildWorkbook } = require('../utils/xlsxExport');
 const { uploadProfileImage, deleteProfileImage } = require('../utils/profileImageService');
 const profileDir = path.join(__dirname,'..','..','private_uploads','profiles');
-fs.mkdirSync(profileDir,{recursive:true});
 function saveImportedProfileImage(image){
   if(!image?.data) return '';
   const ext=['jpg','jpeg','png','webp'].includes(String(image.ext||'').toLowerCase()) ? String(image.ext).toLowerCase() : 'png';
   const filename=`${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+  fs.mkdirSync(profileDir,{recursive:true});
   fs.writeFileSync(path.join(profileDir,filename),image.data);
   return filename;
 }
@@ -384,6 +384,7 @@ async function downloadEmployeeData(req,res,next){try{
 
 
 async function updateEmployeePhoto(req, res, next) {
+  const tempPath = req.files?.photo?.path;
   try {
     const file = req.files?.photo;
     if (!file) return res.status(400).json({success:false,message:'Please choose a JPG, PNG or WebP image.'});
@@ -396,10 +397,12 @@ async function updateEmployeePhoto(req, res, next) {
     employee.profileImagePublicId = uploaded.public_id || '';
     employee.profileImageFilename = '';
     await employee.save();
-    try { await fs.promises.unlink(file.path); } catch (_) {}
     if (oldPublicId) { try { await deleteProfileImage(oldPublicId); } catch (_) {} }
     res.json({success:true,message:'Profile picture updated successfully.',user:clean(employee)});
   } catch(e) { next(e); }
+  finally {
+    if (tempPath) { try { await fs.promises.unlink(tempPath); } catch (_) {} }
+  }
 }
 
 async function getEmployeeDetails(req,res,next){try{

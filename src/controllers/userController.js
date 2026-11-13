@@ -73,6 +73,7 @@ async function getMyApplications(req, res, next) {
 
 
 async function uploadProfilePhoto(req, res, next) {
+  const tempPath = req.files?.photo?.path;
   try {
     const file = req.files?.photo;
     if (!file) return res.status(400).json({ success:false, message:'Please choose a JPG, PNG or WebP image.' });
@@ -86,9 +87,11 @@ async function uploadProfilePhoto(req, res, next) {
     user.profileImagePublicId = result.public_id || '';
     user.profileImageFilename = '';
     await user.save();
-    try { await fs.promises.unlink(file.path); } catch (_) {}
     return res.json({ success:true, message:'Profile picture added successfully.', user:user.toSafeObject() });
   } catch (err) { next(err); }
+  finally {
+    if (tempPath) { try { await fs.promises.unlink(tempPath); } catch (_) {} }
+  }
 }
 
 module.exports = {
