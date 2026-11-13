@@ -1,0 +1,41 @@
+User-agent: *
+Allow: /
+
+# Private and Restricted Portals
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin.html
+Disallow: /admin-workspace
+Disallow: /admin-workspace.html
+Disallow: /employee
+Disallow: /employee/
+Disallow: /employee.html
+Disallow: /intern
+Disallow: /intern/
+Disallow: /client
+Disallow: /client/
+Disallow: /portal
+
+# Authentication and Account Creation
+Disallow: /login
+Disallow: /login.html
+Disallow: /register
+Disallow: /register.html
+Disallow: /admin-login
+Disallow: /admin-login.html
+Disallow: /employee-login
+Disallow: /employee-login.html
+Disallow: /intern-login
+Disallow: /intern-login.html
+Disallow: /client-login
+
+# Backend API Endpoints
+Disallow: /api/
+
+# Private Uploads and Internal Spreadsheets
+Disallow: /private_uploads/
+Disallow: /*.xlsx$
+
+# Canonical XML Sitemap
+Sitemap: https://www.ancsolutionspvtltd.com/sitemap.xml
+

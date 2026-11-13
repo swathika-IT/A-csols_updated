@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.ancsolutionspvtltd.com/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- CCTV Monitoring -->
+  <url>
+    <loc>https://www.ancsolutionspvtltd.com/domain-cctv.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- IT & Technology -->
+  <url>
+    <loc>https://www.ancsolutionspvtltd.com/it-technology.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Real Estate Promotions -->
+  <url>
+    <loc>https://www.ancsolutionspvtltd.com/Real%20Estate%20Promotions.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Digital Marketing -->
+  <url>
+    <loc>https://www.ancsolutionspvtltd.com/digital%20marketing.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Content Creation -->
+  <url>
+    <loc>https://www.ancsolutionspvtltd.com/content-creation.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Content Moderation -->
+  <url>
+    <loc>https://www.ancsolutionspvtltd.com/content-moderation.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
+
